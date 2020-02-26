@@ -18,7 +18,7 @@ class CustomersSerializer(serializers.ModelSerializer):
 class CustomerSummariesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerSummaries
-        fields = ['CustomerID', 'SeasonID', 'TotalRepaid', 'TotalCredit']
+        fields = ['CustomerID_id', 'SeasonID_id', 'TotalRepaid', 'TotalCredit']
 
 
 class RepaymentUploadsSerializer(serializers.ModelSerializer):
@@ -30,5 +30,5 @@ class RepaymentUploadsSerializer(serializers.ModelSerializer):
 class RepaymentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Repayments
-        fields = ['CustomerID',
+        fields = ['id', 'CustomerID',
                   'SeasonID', 'Date', 'Amount', 'ParentID']

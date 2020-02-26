@@ -32,8 +32,9 @@ class RepaymentUploads(models.Model):
 
 
 class Repayments(models.Model):
-    CustomerID = models.IntegerField()
-    SeasonID = models.IntegerField()
+    CustomerID = models.ForeignKey(Customers, on_delete=models.CASCADE)
+    SeasonID = models.ForeignKey(
+        Season, on_delete=models.CASCADE, blank=True, null=True)
     Date = models.DateField()
     Amount = models.FloatField()
-    ParentID = models.IntegerField()
+    ParentID = models.IntegerField(blank=True, null=True)

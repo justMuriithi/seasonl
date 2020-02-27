@@ -40,6 +40,7 @@ class RepaymentUploadsViewSet(viewsets.ModelViewSet):
         records_ = CustomerSummaries.objects.filter(
             CustomerID=CustomerID)
         loopcount = len(records)
+        parentID = None
 
         for n in range(0, loopcount):
             owed = float(records[n]['TotalCredit']) - \
@@ -66,7 +67,6 @@ class RepaymentUploadsViewSet(viewsets.ModelViewSet):
             customersummaries_serializer.save()
 
             # updating repayments table
-            parentID = None
             repayment_data = {
                 "CustomerID": CustomerID,
                 "SeasonID": records[n]['SeasonID_id'],
